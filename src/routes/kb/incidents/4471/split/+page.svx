@@ -36,21 +36,21 @@ has its own ticket below.
   bug: fixing the parser does not touch it. The fix is the hint, from the tenant's locale.
 - **`one-day`**: the date moves by one day, not month for day ("Tuesday 6 October showed as
   Monday", "Client in Lisbon got Tuesday. Client in Toronto got Monday"). A time-zone shift,
-  not a parse. The desk saw these (`desk-notes.json`) but the cause table files them under the
-  tenant's cause, so they had no ticket.
+  not a parse. The desk saw these (`desk-notes.json`) and counts them under the tenant's cause,
+  so they had no ticket. They keep that count and now have a ticket of their own.
 
 ## Why one ticket hid three
 
 - Dedupe by subject ([decision 0001](/kb/decisions/0001-dedupe-by-subject)) merges anything
   titled like a wrong date. All three problems are titled like a wrong date.
-- Intake's tag is a guess from the reporter's browser, not the tenant: the table counts how
-  many reports intake tagged as something else.
+- Intake's tag is a guess from the reporter's browser, not the tenant, so it cannot tell `hint`
+  from `parser`: see "tagged as" in the table below.
 - The export pages overlap, so some reports come twice. They are counted once.
 
 ## What #4471's own table shows
 
-The existing table, for comparison: it splits by tenant, so the `one-day` reports sit inside
-`parser`, and only a footnote says so.
+The existing table, for comparison: the counts above are its counts. The `hint` row has no
+ticket, and the `one-day` reports are only its footnote.
 
 <CauseTable ticket={4471} />
 
